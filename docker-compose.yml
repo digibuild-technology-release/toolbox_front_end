@@ -1,0 +1,18 @@
+version: "3"
+services:
+  cold_chain:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    container_name: cold_chain
+    hostname: cold_chain
+    restart: always
+    # volumes:
+    #   - /data/solutions/cold_chain_fe:/opt/cold_chain
+    env_file:
+      - ./.env
+networks:
+   default:
+       driver: bridge

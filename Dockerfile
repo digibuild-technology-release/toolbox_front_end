@@ -9,12 +9,12 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 COPY . ./
 # install app dependencies
 RUN npm install 
-RUN npm audit fix
 # Build for production.
 RUN npm run build --production
 # Install `serve` to run the application.
 RUN npm install -g serve
 # Run application
+#RUN npm audit fix --force
 #CMD [ "npm", "start" ]
 #CMD serve -s build --listen 3000 --ssl-cert "./cert/cert.pem" --ssl-key "./cert/key.pem"
 CMD serve -s build --listen 3000
